@@ -67,7 +67,7 @@ Katalog diatur secara modular dan dinamis menjadi beberapa kategori utama dengan
 
 1. Pemberian Data Transparan: Pelanggan mengisi nama, email, nomor WhatsApp aktif, alamat pengiriman, dan kode pos di formulir yang divalidasi ketat oleh sistem.
 2. Pilihan Kurir & Metode Pembayaran: Terintegrasi pilihan kurir lokal (JNE, J&T, SiCepat) dengan kalkulasi tarif otomatis, serta metode pembayaran instan.
-3. Simulasi Midtrans Secure Sandbox Gateway: Proyek menggunakan simulasi **Midtrans Sandbox** sebagai *payment gateway*-nya. Ketika tombol "Bayar Sekarang" diklik, sistem akan menampilkan animasi pemrosesan (*loading spinner*) selama 2 detik untuk mensimulasikan otentikasi API pembayaran aman (GoPay/QRIS/Virtual Account), lalu mengembalikan respon sukses transaksi tanpa mengharuskan pengguna memproses uang asli di lingkungan pengembangan.
+3. Simulasi Midtrans Secure Sandbox Gateway: Proyek menggunakan simulasi **Midtrans Sandbox** sebagai *payment gateway*-nya. Ketika tombol "Bayar Sekarang" diklik, sistem akan menampilkan animasi pemrosesan (*loading spinner*) selama 2 detik untuk mensimulasikan otentikasi API pembayaran aman (GoPay/BCA/Virtual Account), lalu mengembalikan respon sukses transaksi tanpa mengharuskan pengguna memproses uang asli di lingkungan pengembangan.
 
 8. Rencana SEO, Keamanan, & Pemeliharaan
 
@@ -88,7 +88,7 @@ Katalog diatur secara modular dan dinamis menjadi beberapa kategori utama dengan
 
 * Google Analytics Integration: Memasang cuplikan kode (*snippet script*) Google Analytics di bagian `<head>` berkas HTML untuk merekam perilaku kunjungan pengguna secara anonim.
 * Metrik Utama yang Dipantau:
-* Bounce Rate & Page Views: Melihat halaman atau bagian teks mana (misal bagian *About Me* atau *Katalog*) yang paling lama dibaca oleh pengunjung.
+* Bounce Rate & Page Views: Melihat halaman atau bagian teks mana (misal bagian *Tentang & visi* atau *Katalog*) yang paling lama dibaca oleh pengunjung.
 * Conversion Rate (Tingkat Konversi): Menghitung berapa banyak pengunjung yang mengklik "Tambah Keranjang" hingga benar-benar menyelesaikan proses simulasi pembayaran.
 
 
