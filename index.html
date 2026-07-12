@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝜗ৎ TuTu Bags - Cute Bags & Bagcharms Shop</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-XXXXX-Y', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a onclick="showPage('home-view')" class="logo">𝜗ৎ TuTu Bags </a>
+            <ul class="nav-menu">
+                <li><a onclick="showPage('home-view')" id="nav-home" class="active">Beranda</a></li>
+                <li><a onclick="showPage('about-view')" id="nav-about">Tentang & Visi</a></li>
+                <li><a onclick="showPage('catalog-view')" id="nav-catalog">Katalog</a></li>
+                <li class="user-logged-in hidden-section"><a onclick="showPage('tracking-view')" id="nav-track">Pelacakan</a></li>
+                <li class="user-logged-in hidden-section"><a onclick="showPage('profile-view')" id="nav-profile">Profil Saya</a></li>
+                <li class="admin-logged-in hidden-section"><a onclick="showPage('admin-view')" id="nav-admin">Panel Admin</a></li>
+                <li><a onclick="showPage('login-view')" id="nav-login-btn"><i class="fa-solid fa-user"></i> Masuk</a></li>
+            </ul>
+            <div class="nav-icons">
+                <select class="lang-currency-select" id="lang-selector" onchange="changeLanguage()">
+                    <option value="id">ID (Bahasa)</option>
+                    <option value="en">EN (English)</option>
+                </select>
+                <select class="lang-currency-select" id="curr-selector" onchange="changeCurrency()">
+                    <option value="IDR">IDR (Rp)</option>
+                    <option value="USD">USD ($)</option>
+                </select>
+
+                <div class="icon-btn" onclick="showPage('wishlist-view')">
+                    <i class="fa-solid fa-heart"></i>
+                    <span class="badge" id="wishlist-count">0</span>
+                </div>
+                <div class="icon-btn" onclick="toggleCart(true)">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    <span class="badge" id="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header id="hero-slider-section" class="hero-slider">
+        <div class="slider-container" id="slider-container">
+            <div class="slide">
+                <h1 id="slide1-t">Koleksi Tas Retail Wanita Paling Gemas</h1>
+                <p id="slide1-p">Temukan kenyamanan puff slingbag lembut, rajutan kasual, tote bag floral estetik, serta ragam aksesoris menggemaskan pilihanmu!</p>
+                <a onclick="showPage('catalog-view')" class="btn-shop" id="slide1-b">Buka Katalog Imut <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="slide">
+                <h1 id="slide2-t">Koleksi Bag Charms & Plushies Tercomel</h1>
+                <p id="slide2-p">Tambahkan karakter gantungan kunci Capybara atau Teddy Bear berbulu halus untuk personalisasi tas harianmu agar makin aesthetic.</p>
+                <a onclick="showPage('catalog-view')" class="btn-shop" id="slide2-b">Lihat Gantungan Kunci</a>
+            </div>
+            <div class="slide">
+                <h1 id="slide3-t">Diskon Eksklusif Pelanggan Baru!</h1>
+                <p id="slide3-p">Gunakan kode voucher "TUTUHELO" saat check out pertama kali untuk memotong harga total belanjaanmu.</p>
+                <a onclick="showPage('login-view')" class="btn-shop" id="slide3-b">Daftar / Masuk Akun</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <div id="home-view" class="page-route">
+            <h2 class="section-title" id="home-title">Produk Terpopuler Minggu Ini</h2>
+            <div class="products-grid" id="featured-products-grid">
+                </div>
+            
+            <div class="reviews-section">
+                <h3 class="section-title" style="font-size:22px;" id="rev-title">Apa Kata Mereka? (Review Pelanggan)</h3>
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p style="font-size:13px; font-style:italic;">"Tas puffy-nya empuk bgt! Muat banyak barang kuliah dan warnanya soft estetik parah."</p>
+                        <h5 style="margin-top:8px; text-align:right;">- Nabila K.</h5>
+                    </div>
+                    <div class="review-card">
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p style="font-size:13px; font-style:italic;">"Bag charm capybaranya lucu maksimal, digantung di ransel dapet komplemen terus dari temen kelas."</p>
+                        <h5 style="margin-top:8px; text-align:right;">- Tasya R.</h5>
+                    </div>
+                    <div class="review-card">
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                        <p style="font-size:13px; font-style:italic;">"Pengiriman cepet, packing rapi dapet freebies stiker lucu juga. Fix bakal reorder lagi sih."</p>
+                        <h5 style="margin-top:8px; text-align:right;">- Amalia S.</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="about-view" class="page-route hidden-section card-page about-box">
+            <h2 class="section-title" id="ab-page-t">Tentang TuTu Bags</h2>
+            <p id="ab-page-p">TuTu Bags berawal dari kecintaan kami terhadap dunia fashion retail wanita kasual bernuansa pastel lembut yang penuh keceriaan. Kami percaya bahwa sebuah tas kecil bukan sekadar wadah pembawa barang, melainkan medium ekspresi diri dan peningkat rasa percaya diri dalam melangkah setiap harinya.</p>
+            <div class="vision-mission">
+                <div class="vm-card">
+                    <h4 style="color:var(--pink-dark);" id="v-title">VISI PERUSAHAAN</h4>
+                    <p style="font-size:13px;" id="v-desc">Menjadi brand fashion retail tas wanita kasual dan aksesoris terdepan di Indonesia yang menginspirasi keimutan dan kebahagiaan harian para wanita muda dengan harga ramah kantong.</p>
+                </div>
+                <div class="vm-card">
+                    <h4 style="color:var(--pink-dark);" id="m-title">MISI UTAMA</h4>
+                    <p style="font-size:13px;" id="m-desc">Menyediakan produk berkualitas tinggi dengan kurasi desain kreatif terkini, serta menghadirkan pelayanan konsumen terbaik yang tulus, responsif, dan solutif.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="catalog-view" class="page-route hidden-section">
+            <h2 class="section-title" id="cat-title">Semua Koleksi Imut & Cantik</h2>
+            
+            <div class="filter-container">
+                <input type="text" id="search-input" placeholder="Cari nama produk..." oninput="applyCatalogFilters()">
+                <select id="category-filter" onchange="applyCatalogFilters()">
+                   <option value="all">Semua Jenis</option>
+                   <option value="shoulder bag">Shoulder Bag</option>
+                   <option value="sling bag">Sling Bag</option>
+                   <option value="tote bag">Tote Bag</option>
+                   <option value="pouch">Pouch</option>
+                   <option value="backpack">Backpack</option>
+                   <option value="hand bag">Hand Bag</option>
+                   <option value="bag charm">Bag Charm</option>
+                </select>
+                <select id="price-filter" onchange="applyCatalogFilters()">
+                    <option value="all">Semua Rentang Harga</option>
+                    <option value="under-100">Di bawah Rp 100.000</option>
+                    <option value="above-100">Rp 100.000 ke atas</option>
+                </select>
+                <button class="btn-reset" onclick="resetFilters()"><i class="fa-solid fa-rotate-left"></i> Reset</button>
+            </div>
+
+            <div class="products-grid" id="main-catalog-grid">
+                </div>
+        </div>
+
+        <div id="wishlist-view" class="page-route hidden-section">
+            <h2 class="section-title">❤️ Wishlist Saya</h2>
+
+            <div class="products-grid" id="wishlist-grid">
+
+            </div>
+        </div>
+        <div id="login-view" class="page-route hidden-section card-page">
+            <div class="login-tabs">
+                <button class="tab-btn active" id="tab-cust" onclick="switchLoginTab('customer')">Pelanggan</button>
+                <button class="tab-btn" id="tab-admin" onclick="switchLoginTab('admin')">Administrator</button>
+            </div>
+            
+            <div id="login-form-box">
+                <h3 style="text-align:center; margin-bottom:20px;" id="log-welcome">Masuk ke Akun Anda</h3>
+                <div class="form-group">
+                    <label>Username / Email</label>
+                    <input type="text" id="login-username" value="pelanggan imut">
+                </div>
+                <div class="form-group">
+                    <label id="log-pass">Kata Sandi</label>
+                    <input type="password" id="login-password" value="rahasia123">
+                </div>
+                <p id="login-err-msg" style="color:red; font-size:13px; margin-bottom:10px; display:none;">Kombinasi salah!</p>
+                <button class="btn-submit" onclick="processLogin()" id="btn-login-exec">Masuk Sekarang</button>
+            </div>
+        </div>
+
+        <div id="profile-view" class="page-route hidden-section card-page">
+            <h2 class="section-title" id="prof-title">Pengaturan Profil Akun</h2>
+            <div class="profile-header">
+                <div class="avatar-container">
+                    <img src="images/pp.jpg" alt="Avatar" class="profile-avatar" id="user-display-avatar">
+                    <label for="avatar-file" class="file-input-label">
+                        <i class="fa-solid fa-camera"></i>
+                    </label>
+                    <input type="file" id="avatar-file" style="display:none;" accept="image/*" onchange="handleAvatarUpload(event)">
+                </div>
+                <div>
+                    <h3 id="profile-display-name">Windah batubara</h3>
+                    <p style="font-size:13px; color:var(--text-light);" id="prof-role-lbl">Status Pembeli: Member Terverifikasi</p>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label id="lbl-p1">Nama Lengkap</label>
+                <input type="text" id="prof-name" value="Pelanggan Imut">
+            </div>
+            <div class="form-group">
+                <label id="lbl-p2">Nomor Telepon WA</label>
+                <input type="text" id="prof-phone" value="08123456789">
+            </div>
+            <div class="form-group">
+                <label id="lbl-p3">Alamat Utama Pengiriman</label>
+                <textarea id="prof-address" rows="3">Jl. Setiabudi No. 12, Kota Bandung</textarea>
+            </div>
+            <button class="btn-submit" onclick="saveProfileChanges()" id="btn-save-prof">Simpan Perubahan</button>
+            <button class="btn-submit" style="background:#4A4A4A; margin-top:10px;" onclick="logout()" id="btn-logout-lbl">Keluar Akun</button>
+        </div>
+
+        <div id="payment-view" class="page-route hidden-section">
+            <h2 class="section-title" id="pay-title">Formulir Penyelesaian Pembayaran resmi</h2>
+            
+            <div class="payment-layout">
+                <div class="card-page" style="margin:0; max-width:100%;">
+                    <h4 style="margin-bottom:15px; color:var(--pink-dark);" id="pay-ship-lbl">Informasi Alamat Pengiriman</h4>
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px;">
+                        <div class="form-group">
+                            <label id="frm-n">Nama Penerima *</label>
+                            <input type="text" id="pay-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label id="frm-p">No. Telepon Aktif *</label>
+                            <input type="text" id="pay-phone" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" id="pay-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label id="frm-a">Alamat Rumah Lengkap & Detail Jalan *</label>
+                        <textarea id="pay-address-detail" rows="3" required></textarea>
+                    </div>
+                    <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:10px;">
+                        <div class="form-group">
+                            <label id="frm-pr">Provinsi *</label>
+                            <input type="text" id="pay-province" required>
+                        </div>
+                        <div class="form-group">
+                            <label id="frm-k">Kota/Kabupaten *</label>
+                            <input type="text" id="pay-city" required>
+                        </div>
+                        <div class="form-group">
+                            <label id="frm-kd">Kode Pos *</label>
+                            <input type="text" id="pay-zip" required>
+                        </div>
+                    </div>
+
+                    <h4 style="margin:20px 0 15px 0; color:var(--pink-dark);" id="pay-method-lbl">Opsi Pengiriman & Pembayaran</h4>
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px;">
+                        <div class="form-group">
+                            <label id="frm-e">Jasa Ekspedisi</label>
+                            <select id="pay-shipping-courier" onchange="recalculateTotals()">
+                                <option value="JNE">JNE Regular (Rp 15.000)</option>
+                                <option value="JNT">J&T Express (Rp 12.000)</option>
+                                <option value="SICEPAT">SiCepat Halu (Rp 10.000)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label id="frm-m">Metode Pembayaran</label>
+                            <select id="pay-method-choice">
+                                <option value="Transfer Bank BCA">Transfer Bank BCA</option>
+                                <option value="Transfer Bank Mandiri">Transfer Bank Mandiri</option>
+                                <option value="DANA E-Wallet">DANA E-Wallet</option>
+                                <option value="GoPay">GoPay</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="summary-box">
+                    <h4 style="margin-bottom:15px;" id="sum-title">Ringkasan Pesanan</h4>
+                    <div id="checkout-items-list" style="max-height:180px; overflow-y:auto; margin-bottom:15px;">
+                        </div>
+                    
+                    <div class="voucher-section">
+                        <input type="text" id="voucher-code" placeholder="Kode Voucher">
+                        <button class="btn-voucher" onclick="applyVoucher()" id="btn-v-apply">Gunakan</button>
+                    </div>
+                    <p id="voucher-success-msg" style="color:green; font-size:12px; margin-top:-10px; margin-bottom:10px; display:none;">Voucher Berhasil!</p>
+
+                    <div style="border-top:1px solid #DDD; padding-top:10px; font-size:14px;">
+                        <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+                            <span>Subtotal:</span><span id="checkout-subtotal">Rp 0</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+                            <span id="sum-ship">Biaya Kirim:</span><span id="checkout-shipping-cost">Rp 0</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; margin-bottom:5px; color:red; display:none;" id="voucher-row-div">
+                            <span id="sum-disc">Potongan Diskon:</span><span id="checkout-discount-amount">-Rp 0</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; margin-top:10px; font-weight:600; font-size:16px; border-top:1px solid #EEE; padding-top:10px;">
+                            <span id="sum-total">Total Bayar:</span><span id="checkout-grand-total">Rp 0</span>
+                        </div>
+                    </div>
+                    <button class="btn-submit" style="margin-top:20px; background-color:var(--pink-dark);" onclick="executeCheckoutFinal()" id="btn-pay-exec">Konfirmasi Pembayaran</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="tracking-view" class="page-route hidden-section card-page">
+            <h2 class="section-title" id="track-title">Informasi Pengiriman & Pelacakan</h2>
+            <div style="background:var(--bg-soft); padding:15px; border-radius:10px; margin-bottom:20px; font-size:14px;">
+                <h4 id="track-sub">Status Pengiriman Terakhir Anda:</h4>
+                <p style="margin-top:5px;" id="track-status-text">Belum ada transaksi aktif saat ini. Silakan berbelanja terlebih dahulu!</p>
+            </div>
+            <h4 style="margin-bottom:10px;" id="info-ship-t">Kebijakan Pengiriman Toko:</h4>
+            <ul style="margin-left:20px; font-size:13px; line-height:1.7; color:var(--text-light);">
+                <li id="info-l1">Pesanan masuk sebelum jam 15.00 WIB akan dikirim di hari yang sama.</li>
+                <li id="info-l2">Resi otomatis sistem akan diperbarui dalam waktu maksimal 1x24 jam setelah kurir melakukan pick-up.</li>
+                <li id="info-l3">Kami tidak bertanggung jawab atas keterlambatan yang disebabkan murni oleh kelalaian pihak ekspedisi logistik.</li>
+            </ul>
+        </div>
+
+        <div id="admin-view" class="page-route hidden-section">
+            <h2 class="section-title">Dashboard Manajemen Toko (Admin)</h2>
+            <div class="admin-layout">
+                <div class="admin-panel">
+                    <h3 style="font-size:16px; border-bottom:1px solid #EEE; padding-bottom:8px;" id="adm-p1">Ubah Harga Katalog</h3>
+                    <div style="max-height:400px; overflow-y:auto;">
+                        <table class="admin-table">
+                            <thead>
+                                <tr><th>Nama</th><th>Harga (Rp)</th><th>Aksi</th></tr>
+                            </thead>
+                            <tbody id="admin-product-table-body">
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="admin-panel">
+                    <h3 style="font-size:16px; border-bottom:1px solid #EEE; padding-bottom:8px;" id="adm-p2">Laporan Analisis Penjualan</h3>
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-top:15px;">
+                        <div style="background:#EBF7EE; padding:15px; border-radius:10px; text-align:center;">
+                            <h5 id="adm-r1">Total Pendapatan</h5>
+                            <h3 id="admin-revenue-text" style="color:green; margin-top:5px;">Rp 1.420.000</h3>
+                        </div>
+                        <div style="background:#FFF3CD; padding:15px; border-radius:10px; text-align:center;">
+                            <h5 id="adm-r2">Transaksi Sukses</h5>
+                            <h3 id="admin-order-count-text" style="margin-top:5px;">9</h3>
+                        </div>
+                    </div>
+
+                    <h4 style="margin-top:20px; font-size:14px;" id="adm-p3">Laporan Pembayaran (Berdasarkan Jenis Bayar)</h4>
+                    <table class="admin-table">
+                        <thead><tr><th id="th-m">Metode</th><th id="th-j">Jumlah Transaksi</th></tr></thead>
+                        <tbody>
+                            <tr><td>Transfer Bank BCA</td><td>4</td></tr>
+                            <tr><td>Transfer Bank Mandiri</td><td>2</td></tr>
+                            <tr><td>DANA E-Wallet</td><td>2</td></tr>
+                            <tr><td>GoPay</td><td>1</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h4 style="margin-top:20px; font-size:14px;" id="adm-p4">Laporan Produk (Penjualan Kuantitas Terbanyak)</h4>
+                    <table class="admin-table">
+                        <thead><tr><th>Nama Produk</th><th id="th-t">Total Terjual</th></tr></thead>
+                        <tbody>
+                            <tr><td>Tutu Soft Puffy Bag Pastel Pink</td><td>3 Pcs</td></tr>
+                            <tr><td>Capybara Soft Plushie Bagcharm</td><td>3 Pcs</td></tr>
+                            <tr><td>Vintage Floral Aesthetic Tote</td><td>2 Pcs</td></tr>
+                            <tr><td>Aesthetic Ribbon Cotton Slingbag</td><td>1 Pcs</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <div class="checkout-loading hidden-section" id="checkout-spinner-overlay">
+        <div class="spinner"></div>
+        <h4 id="load-text">Menghubungkan ke Midtrans Secure Sandbox...</h4>
+        <p style="font-size:12px; color:var(--text-light);" id="load-sub">Mohon tunggu, jangan tutup halaman ini.</p>
+    </div>
+
+    <div class="cart-sidebar" id="cart-sidebar-id">
+        <div class="cart-header">
+            <h3 id="cart-sidebar-title">Keranjang Belanja</h3>
+            <span style="cursor:pointer; font-size:24px;" onclick="toggleCart(false)">&times;</span>
+        </div>
+        <div class="cart-items" id="cart-items-container">
+            </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-text">Rp 0</span>
+            </div>
+            <button class="btn-checkout" onclick="proceedToCheckoutView()">
+                <i class="fa-solid fa-credit-card"></i>
+                Lanjut ke Pembayaran
+            </button>
+        </div>
+    </div>
+
+    <div class="modal" id="product-detail-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModalPopup()">&times;</span>
+            <div id="modal-popup-body">
+                </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container" id="footer-dynamic-content">
+            </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 TuTu Bags Official Store. All Rights Reserved. Crafted with Sweet Love.</p>
+        </div>
+    </footer>
+
+    <script src="js/product.js"></script>
+    <script src="js/wishlist.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/checkout.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
